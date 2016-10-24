@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AssignmentAye.Pages.CarouselDroidPage"
+             Title="Carousel">
+
+  <ContentPage BackgroundColor="White">
+    <ContentPage.Padding>
+      <OnPlatform x:TypeArguments="Thickness" iOS="0,10,0,0" Android="0,10,0,0" />
+    </ContentPage.Padding>
+
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*"></RowDefinition>
+        <RowDefinition Height="3*"></RowDefinition>
+        <RowDefinition Height="*"></RowDefinition>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"></ColumnDefinition>
+        <ColumnDefinition Width="3*"></ColumnDefinition>
+        <ColumnDefinition Width="*"></ColumnDefinition>
+      </Grid.ColumnDefinitions>
+
+      <Label Text="Some image" FontSize="Large" Grid.Row="0" Grid.Column="1" TextColor="Black"
+             HorizontalOptions="Center" VerticalOptions="Center"/>
+
+      <Image Source="banner_3.jpg" Grid.Row="1" Grid.Column="1"
+             HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFit"></Image>
+
+      <Button x:Name="ToggleStateButton" Grid.Row="2"  Grid.Column="1"
+              IsEnabled="{Binding IsEnableImageButton}"
+              VerticalOptions="Center" HorizontalOptions="FillAndExpand"
+              Clicked="ToggleStateButton_OnClicked"
+              BackgroundColor="#5DCBD3">
+        <Button.Triggers>
+          <Trigger TargetType="Button"
+               Property="IsEnabled" Value="true">
+            <Setter Property="TextColor" Value="Red" />
+            <Setter Property="Text" Value="I'm enabled" />
+          </Trigger>
+          <Trigger TargetType="Button"
+               Property="IsEnabled" Value="false">
+            <Setter Property="TextColor" Value="Gray" />
+            <Setter Property="Text" Value="I'm disabled" />
+          </Trigger>
+        </Button.Triggers>
+      </Button>
+    </Grid>
+  </ContentPage>
+
+
+
+  <ContentPage>
+    <ContentPage.Padding>
+      <OnPlatform x:TypeArguments="Thickness" iOS="0,10,0,0" Android="0,10,0,0" />
+    </ContentPage.Padding>
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*"></RowDefinition>
+        <RowDefinition Height="*"></RowDefinition>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"></ColumnDefinition>
+        <ColumnDefinition Width="4*"></ColumnDefinition>
+        <ColumnDefinition Width="*"></ColumnDefinition>
+      </Grid.ColumnDefinitions>
+      <Label Text="Click toggle button to manage btn state on previous page" Grid.Row="0" Grid.Column="1"
+             FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center"
+             HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+
+      <Switch x:Name="MySwitchBtn" Grid.Row="1" Grid.Column="1" Toggled="MySwitchBtn_OnToggled"
+              HorizontalOptions="Center" VerticalOptions="Start" BackgroundColor="#EAEFC7"></Switch>
+
+    </Grid>
+  </ContentPage>
+</CarouselPage>

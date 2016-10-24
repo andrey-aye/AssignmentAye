@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AssignmentAye.Pages.MasterDroidPage"
+             Padding="10,40,10,0" Title="Master Droid Page"
+             Icon="slideout.png">
+  <ContentPage.Content>
+    <StackLayout VerticalOptions="FillAndExpand" Padding="2">
+      <ListView x:Name="listView" VerticalOptions="FillAndExpand" RowHeight="50"
+                SeparatorVisibility="None">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <Grid>
+                <Label Text="{Binding Title}" FontSize="Medium" TextColor="#118791" 
+                       HorizontalTextAlignment="Center"
+                       BackgroundColor="Transparent"
+                       VerticalOptions="Center" HorizontalOptions="Start">
+                </Label>
+              </Grid>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+
+      <Button x:Name="LogoutButton" Text="Logout" Style="{StaticResource LightButtonStyle}"
+              HorizontalOptions="FillAndExpand" VerticalOptions="End"
+              Clicked="LogoutButton_OnClicked">
+      </Button>
+
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

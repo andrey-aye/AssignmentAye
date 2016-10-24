@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AssignmentAye.App">
+  <Application.Resources>
+    <ResourceDictionary>
+
+      <x:String x:Key="SearchBtnKey">search_menu_active.png</x:String>
+      <x:String x:Key="CloseImageKey">close_menu.png</x:String>
+
+      <Style x:Key="LightButtonStyle" TargetType="Button" >
+        <Setter Property="BackgroundColor" Value="#EFFDFE"/>
+        <Setter Property="BorderColor" Value="#118791"/>
+        <Setter Property="BorderWidth" Value="2"/>
+        <Setter Property="BorderRadius" Value="5"/>
+        <Setter Property="TextColor" Value="#5C5C5C"/>
+        <Setter Property="FontAttributes" Value="None"/>
+        <Setter Property="FontSize" Value="Medium"/>
+        <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+        <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+      </Style>
+
+      <Style x:Key="LightEntryStyle" TargetType="Entry" >
+        <Setter Property="BackgroundColor" Value="White"/>
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        <Setter Property="PlaceholderColor" Value="#C1BDBD"/>
+        <Setter Property="TextColor" Value="#525252"/>
+        <Setter Property="FontAttributes" Value="None"/>
+        <Setter Property="FontSize" Value="Medium"/>
+        <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+        <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+      </Style>
+
+
+
+      <DataTemplate x:Key="MovieTemplate">
+        <ViewCell>
+          <Grid Padding="5" BackgroundColor="#EFFDFE" Opacity="1"
+                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*"></ColumnDefinition>
+              <ColumnDefinition Width="4*"></ColumnDefinition>
+              <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Image Source="{Binding Poster}" Aspect="AspectFit" Grid.Column="0"></Image>
+
+            <Label Grid.Column="1" Text="{Binding Title}"
+                   TextColor="#5C5C5C" HorizontalTextAlignment="Start"
+                   BackgroundColor="Transparent" VerticalOptions="Center" HorizontalOptions="Start">
+            </Label>
+
+            <Label Grid.Column="2" Text="{Binding Year}"
+                   TextColor="#5C5C5C" HorizontalTextAlignment="Center"
+                   BackgroundColor="Transparent" VerticalOptions="Center" HorizontalOptions="Center">
+            </Label>
+
+          </Grid>
+        </ViewCell>
+      </DataTemplate>
+
+      <DataTemplate x:Key="MovieTemplate2">
+        <ViewCell>
+          <Grid Padding="0" BackgroundColor="#6BE3EB" Opacity="1"
+                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid Padding="10" BackgroundColor="White" Opacity="1"
+             HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+              </Grid.RowDefinitions>
+              <Image Source="{Binding Poster}" Aspect="AspectFit" Grid.Row="0"></Image>
+
+              <Button Grid.Row="1" Text="Rate it!" Command="{Binding RateCommand}" CommandParameter="{Binding }"
+                      Style="{StaticResource LightButtonStyle}"
+                      HorizontalOptions="Center">
+              </Button>
+            </Grid>
+          </Grid>
+        </ViewCell>
+      </DataTemplate>
+
+    </ResourceDictionary>
+  </Application.Resources>
+</Application>

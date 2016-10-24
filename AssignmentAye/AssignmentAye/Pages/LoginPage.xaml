@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:GradientContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                           xmlns:pages="clr-namespace:AssignmentAye.Pages;assembly=AssignmentAye"
+                           x:Class="AssignmentAye.Pages.LoginPage"
+                           Title="Login page">
+
+  <Grid Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*"></RowDefinition>
+      <RowDefinition Height="Auto"></RowDefinition>
+      <RowDefinition Height="4*"></RowDefinition>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*"></ColumnDefinition>
+      <ColumnDefinition Width="4*"></ColumnDefinition>
+      <ColumnDefinition Width="*"></ColumnDefinition>
+    </Grid.ColumnDefinitions>
+
+    <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Vertical" Spacing="10" Padding="0"
+                 VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+      <Entry x:Name="UserNamrEntry" Placeholder="Username"
+             Style="{StaticResource LightEntryStyle}"></Entry>
+
+      <Entry x:Name="PassEntry" IsPassword="True" Placeholder="Password"
+             Style="{StaticResource LightEntryStyle}"></Entry>
+
+      <Button x:Name="LoginButton" Text="LOGIN" Command="{Binding LoginCommand}"
+              Style="{StaticResource LightButtonStyle}"></Button>
+
+      <Button x:Name="SignUpButton" Text="Register" Command="{Binding SignUpCommand}"
+              Style="{StaticResource LightButtonStyle}"></Button>
+
+      <Label x:Name="InfoLabel" FontSize="20" HorizontalOptions="Center" TextColor="Red"></Label>
+
+    </StackLayout>
+  </Grid>
+
+</pages:GradientContentPage>

@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AssignmentAye.Pages.ListScreenPage"
+             Title="List">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*"></RowDefinition>
+      <RowDefinition Height="Auto"></RowDefinition>
+      <RowDefinition Height="7*"></RowDefinition>
+    </Grid.RowDefinitions>
+    
+    <Grid Grid.Row="0" Padding="10,0" VerticalOptions="Center">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"></ColumnDefinition>
+        <ColumnDefinition Width="Auto"></ColumnDefinition>
+      </Grid.ColumnDefinitions>
+      <SearchBar x:Name="MySearchBar" Grid.Column="0" BackgroundColor="White"
+                 TextColor="Black" PlaceholderColor="Gray"
+                 Placeholder="Enter film title to search..."
+                 SearchButtonPressed="MySearchBar_OnSearchButtonPressed"
+                 HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+      </SearchBar>
+
+      <Button Grid.Column="1" Text="Search"
+              Style="{StaticResource LightButtonStyle}"
+              HorizontalOptions="End" VerticalOptions="Center"
+              Clicked="Button_OnClicked">
+      </Button>
+    </Grid>
+
+    <Button Grid.Row="1" Text="Change List Template"
+            Command="{Binding ChangeTemplateCommand}"
+            Style="{StaticResource LightButtonStyle}" 
+            HorizontalOptions="Center" VerticalOptions="Start">
+    </Button>
+
+    <ListView x:Name="SearchedFilmsListView" Grid.Row="2" RowHeight="100"
+              BackgroundColor="Transparent" 
+              SeparatorVisibility="Default" SeparatorColor="Black"
+              ItemsSource="{Binding Films, Mode=TwoWay}"
+              ItemTemplate="{StaticResource MovieTemplate}"
+              ItemSelected="SearchedFilmsListView_OnItemSelected">
+    </ListView>
+
+    <Grid Grid.Row="2" BackgroundColor="Black" Opacity="0.5" IsVisible="{Binding IsLoading}">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"></RowDefinition>
+        <RowDefinition Height="*"></RowDefinition>
+      </Grid.RowDefinitions>
+      <Label Text="Loading..." TextColor="#118690" Grid.Row="0"
+         FontSize="30" FontAttributes="Bold" IsVisible="{Binding IsLoading}"
+         HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+      </Label>
+
+      <ActivityIndicator IsRunning="{Binding IsLoading}" IsVisible="True" Grid.Row="1"
+                         HorizontalOptions="Center" VerticalOptions="Start" Color="Gray"
+                         WidthRequest="90" HeightRequest="90" BackgroundColor="Transparent">
+      </ActivityIndicator>
+    </Grid>
+
+  </Grid>
+</ContentPage>

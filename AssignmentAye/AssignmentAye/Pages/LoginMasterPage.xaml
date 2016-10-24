@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:AssignmentAye.Pages;assembly=AssignmentAye"
+             x:Class="AssignmentAye.Pages.LoginMasterPage">
+
+  <pages:LoginPage x:Name="LoginPg">
+    <pages:LoginPage.Padding>
+      <OnPlatform x:TypeArguments="Thickness" iOS="0,40,0,0" Android="0,40,0,0" />
+    </pages:LoginPage.Padding>
+  </pages:LoginPage>
+
+  <pages:CreateAccountPage x:Name="AccountPg">
+    <pages:CreateAccountPage.Padding>
+      <OnPlatform x:TypeArguments="Thickness" iOS="0,40,0,0" Android="0,40,0,0" />
+    </pages:CreateAccountPage.Padding>
+  </pages:CreateAccountPage>
+
+</CarouselPage>
